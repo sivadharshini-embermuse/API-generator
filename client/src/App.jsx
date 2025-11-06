@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom'
 import Navbar from './components/Navbar'
 
 export default function App(){
+  console.log("Backend URL is:", import.meta.env.VITE_BACKEND_URL);
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <Navbar />
