@@ -1,5 +1,5 @@
 See Output by clicking here: https://api-generator-gamma.vercel.app/
-[My API Live Demo](https://api-generator-gamma.vercel.app/)
+
 
 # APIForge — Full Stack (React + Node/Express + Tailwind) — GitHub Ready Repo
 
