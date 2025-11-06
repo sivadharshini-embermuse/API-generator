@@ -23,12 +23,12 @@ export default function GeneratorForm({onGenerate}){
   }
 
   return (
-    <div className="bg-white p-6 rounded shadow">
+    <div className="bg-dark p-6 rounded shadow">
       <label className="block mb-2 text-sm font-medium">API Category</label>
       <select
         value={category}
         onChange={handleCategoryChange}
-        className="border p-2 w-full mb-4"
+        className="border p-2 w-full mb-4 bg-white dark:bg-gray-800"
       >
         <option value="general">General</option>
         <option value="clothing">Clothing Store</option>
@@ -43,26 +43,26 @@ export default function GeneratorForm({onGenerate}){
       </select>
       
       <label className="block mb-2 text-sm font-medium">API Name</label>
-      <input value={apiName} onChange={e=>setApiName(e.target.value)} className="border p-2 w-full mb-4" />
+      <input value={apiName} onChange={e=>setApiName(e.target.value)} className="border p-2 w-full mb-4 bg-white dark:bg-gray-800" />
 
       <div className="space-y-4">
         {resources.map((res, idx) => (
           <div key={idx} className="border border-slate-100 p-3 rounded">
             <div className="flex gap-2 items-center mb-2">
-              <input value={res.name} onChange={e=>updateResource(idx, {name: e.target.value})} className="border p-2" />
-              <button onClick={()=>{
+              <input value={res.name} onChange={e=>updateResource(idx, {name: e.target.value})} className="border p-2 bg-white dark:bg-gray-800" />
+              {/*<button onClick={()=>{
                 const newFields = [...res.fields, { name: `field${res.fields.length+1}`, type: 'string'}]
                 updateResource(idx, { fields: newFields })
-              }} className="ml-2 text-sm px-2 py-1 bg-slate-100 rounded">Add field</button>
+              }} className="ml-2 text-sm px-2 py-1 bg-slate-100 rounded">Add field</button>*/}
             </div>
             <div className="grid grid-cols-2 gap-2">
               {(res.fields||[]).map((f,i)=> (
                 <div key={i} className="flex gap-2 items-center">
-                  <input className="border p-1 w-1/2" value={f.name} onChange={e=>{
+                  <input className="border p-1 w-1/2 bg-white dark:bg-gray-800" value={f.name} onChange={e=>{
                     const newF = res.fields.map((ff,ii)=> ii===i ? {...ff, name: e.target.value} : ff)
                     updateResource(idx, { fields: newF })
                   }} />
-                  <select className="border p-1 w-1/2" value={f.type} onChange={e=>{
+                  <select className="border p-1 w-1/2 bg-white dark:bg-gray-800" value={f.type} onChange={e=>{
                     const newF = res.fields.map((ff,ii)=> ii===i ? {...ff, type: e.target.value} : ff)
                     updateResource(idx, { fields: newF })
                   }}>
@@ -82,8 +82,8 @@ export default function GeneratorForm({onGenerate}){
       </div>
 
       <div className="mt-4 flex gap-2">
-        <button onClick={addResource} className="px-3 py-2 bg-slate-100 rounded">+ Resource</button>
-        <button onClick={handleGenerate} className="px-3 py-2 bg-blue-600 text-white rounded">Generate API</button>
+        <button onClick={addResource} className="border px-3 py-2 bg-slate-100 bg-white dark:bg-gray-800 rounded">+ Resource</button>
+        <button onClick={handleGenerate} className="px-3 py-2 bg-blue-600 text-white rounded ">Generate API</button>
       </div>
     </div>
   )
